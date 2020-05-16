@@ -18,24 +18,24 @@ public class CategoryController {
 
 
     @PostMapping(value = "/")
-    public String saveAppUSer(@RequestBody CategoryDTO categoryDTO){
+    public String saveCategory(@RequestBody CategoryDTO categoryDTO){
         return categoryService.save(categoryDTO);
     }
     @GetMapping(value="/")
-    public Set<Category> getAppUser(){
+    public Set<Category> getCategory(){
         return categoryService.findAll();
     }
     @GetMapping(value = "/{id}")
-    public Category getAppUserById(@PathVariable("id") Long id){
+    public Category getCategoryById(@PathVariable("id") Long id){
         return categoryService.findById(id);
     }
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String deleteAppUserById(@PathVariable("id") Long id){
+    public String deleteCategoryById(@PathVariable("id") Long id){
         categoryService.deleteById(id);
         return "Deleted";
     }
     @PutMapping("/{id}")
-    public String updateAppUser(@PathVariable("id") Long id , @RequestBody CategoryDTO categoryDTO ){
+    public String updateCategory(@PathVariable("id") Long id , @RequestBody CategoryDTO categoryDTO ){
         return categoryService.update(id ,categoryDTO);
     }
 }

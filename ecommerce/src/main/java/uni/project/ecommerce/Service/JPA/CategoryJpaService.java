@@ -40,7 +40,11 @@ public class CategoryJpaService implements CategoryService {
 
     @Override
     public String update(Long aLong, CategoryDTO object) {
-        return null;
+        Category category=categoryRepository.findById(aLong).orElse(null);
+        category.setName(object.getName());
+        category.setImage(object.getImage());
+        categoryRepository.save(category);
+        return "Record Updated";
     }
 
     @Override

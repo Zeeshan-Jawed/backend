@@ -1,22 +1,17 @@
 package uni.project.ecommerce.Model;
 
-import org.hibernate.annotations.GeneratorType;
-
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
-@Table(name = "categories")
-public class Category {
+public class SubCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String image;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "category")
-    private Set<SubCategory> subCategories=new HashSet<>();
-
+    @ManyToOne()
+    @JoinColumn(name = "category_id")
+    private Category category;
     public Long getId() {
         return id;
     }
@@ -41,13 +36,21 @@ public class Category {
         this.image = image;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     @Override
     public String toString() {
-        return "Category{" +
+        return "SubCategory{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", image='" + image + '\'' +
-                ", subCategories=" + subCategories +
+                ", category=" + category +
                 '}';
     }
 }
