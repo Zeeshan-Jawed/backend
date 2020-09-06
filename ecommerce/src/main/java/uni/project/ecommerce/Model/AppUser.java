@@ -1,5 +1,8 @@
 package uni.project.ecommerce.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,10 +23,11 @@ public class    AppUser {
     private String address;
     private String address2;
     private String registationdate;
-    @ManyToMany
-    @JoinTable(name = "user_roles",joinColumns = @JoinColumn (name = "user_id"),
-            inverseJoinColumns =@JoinColumn (name = "roles_id") )
-    private Set<Role> roles=new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name="role_id")
+    private Role role;
+
     public Long getId() {
         return id;
     }
@@ -112,11 +116,11 @@ public class    AppUser {
         this.registationdate = registationdate;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

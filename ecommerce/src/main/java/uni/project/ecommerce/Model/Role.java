@@ -1,4 +1,6 @@
 package uni.project.ecommerce.Model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -10,6 +12,10 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @JsonBackReference
+    @OneToMany(mappedBy = "role")
+    private Set <AppUser> user =new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -26,4 +32,11 @@ public class Role {
         this.name = name;
     }
 
+    public Set<AppUser> getUser() {
+        return user;
+    }
+
+    public void setUser(Set<AppUser> user) {
+        this.user = user;
+    }
 }

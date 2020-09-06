@@ -3,9 +3,12 @@ package uni.project.ecommerce.Controller;
 import org.springframework.web.bind.annotation.*;
 import uni.project.ecommerce.DTO.CategoryDTO;
 import uni.project.ecommerce.Model.Category;
+import uni.project.ecommerce.Repository.CategoryRepository;
 import uni.project.ecommerce.Service.CategoryService;
 
+import java.util.List;
 import java.util.Set;
+
 @RestController
 @CrossOrigin(origins = "*",allowedHeaders = "*",allowCredentials = "true")
 @RequestMapping(value = "/api/category")

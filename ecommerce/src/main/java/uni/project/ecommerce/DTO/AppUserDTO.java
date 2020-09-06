@@ -1,7 +1,7 @@
 package uni.project.ecommerce.DTO;
 
+import java.util.HashSet;
 import java.util.Set;
-
 public class AppUserDTO {
     private Long id;
     private String email;
@@ -14,6 +14,7 @@ public class AppUserDTO {
     private String address;
     private String address2;
     private String registationdate;
+    private Set<RoleDTO> roleDTOS=new HashSet<>();
 
     public Long getId() {
         return id;
@@ -101,5 +102,13 @@ public class AppUserDTO {
 
     public void setRegistationdate(String registationdate) {
         this.registationdate = registationdate;
+    }
+
+    public Set<RoleDTO> getRoleDTOS() {
+        return roleDTOS;
+    }
+
+    public void setRoleDTOS(Set<RoleDTO> roleDTOS) {
+        this.roleDTOS = roleDTOS;
     }
 }

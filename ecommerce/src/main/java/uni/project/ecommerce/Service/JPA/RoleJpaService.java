@@ -3,14 +3,24 @@ package uni.project.ecommerce.Service.JPA;
 import org.springframework.stereotype.Service;
 import uni.project.ecommerce.DTO.RoleDTO;
 import uni.project.ecommerce.Model.Role;
+import uni.project.ecommerce.Repository.RoleRepository;
 import uni.project.ecommerce.Service.RoleService;
 
+import java.util.HashSet;
 import java.util.Set;
 @Service
 public class RoleJpaService implements RoleService {
+    private final RoleRepository roleRepository;
+
+    public RoleJpaService(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
+
     @Override
     public Set<Role> findAll() {
-        return null;
+        Set<Role> roles=new HashSet<>();
+        roleRepository.findAll().forEach(roles::add);
+        return roles;
     }
 
     @Override

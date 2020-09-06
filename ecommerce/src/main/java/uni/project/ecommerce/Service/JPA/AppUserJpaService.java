@@ -7,11 +7,11 @@ import uni.project.ecommerce.Repository.AppUserRepository;
 import uni.project.ecommerce.Service.AppUserService;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 @Service
 public class AppUserJpaService implements AppUserService {
     private final AppUserRepository appUserRepository;
-
     public AppUserJpaService(AppUserRepository appUserRepository) {
         this.appUserRepository = appUserRepository;
     }
@@ -26,6 +26,12 @@ public class AppUserJpaService implements AppUserService {
     @Override
     public AppUser findById(Long aLong) {
         return appUserRepository.findById(aLong).orElse(null);
+    }
+
+    @Override
+    public Optional<AppUser> findByemail(String email) {
+        return appUserRepository.findByemail(email);
+
     }
 
     @Override
@@ -45,7 +51,6 @@ public class AppUserJpaService implements AppUserService {
         return "Record Saved Sucessfully";
     }
 
-
     @Override
     public String update(Long aLong,AppUserDTO object) {
         AppUser appUser=appUserRepository.findById(aLong).orElse(null);
@@ -62,6 +67,8 @@ public class AppUserJpaService implements AppUserService {
         appUserRepository.save(appUser);
         return "Updated Sucessfully";
     }
+
+
 
     @Override
     public void delete(AppUser object) {

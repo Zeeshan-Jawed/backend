@@ -1,7 +1,5 @@
 package uni.project.ecommerce.DTO;
 
-import uni.project.ecommerce.Model.SubCategory;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,7 +7,6 @@ public class CategoryDTO {
     private Long id;
     private String name;
     private String image;
-    private Set<SubCategory> subCategories=new HashSet<>();
 
     public Long getId() {
         return id;
@@ -35,11 +32,4 @@ public class CategoryDTO {
         this.image = image;
     }
 
-    public Set<SubCategory> getSubCategories() {
-        return subCategories;
-    }
-
-    public void setSubCategories(Set<SubCategory> subCategories) {
-        this.subCategories = subCategories;
-    }
 }
