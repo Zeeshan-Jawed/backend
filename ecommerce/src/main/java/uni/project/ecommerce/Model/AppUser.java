@@ -18,11 +18,7 @@ public class    AppUser {
     private String first_Name;
     private String last_Name;
     private Long contactNo;
-    private String city;
-    private String zip;
     private String address;
-    private String address2;
-    private String registationdate;
 
     @ManyToOne
     @JoinColumn(name="role_id")
@@ -76,44 +72,12 @@ public class    AppUser {
         this.contactNo = contactNo;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getZip() {
-        return zip;
-    }
-
-    public void setZip(String zip) {
-        this.zip = zip;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getAddress2() {
-        return address2;
-    }
-
-    public void setAddress2(String address2) {
-        this.address2 = address2;
-    }
-
-    public String getRegistationdate() {
-        return registationdate;
-    }
-
-    public void setRegistationdate(String registationdate) {
-        this.registationdate = registationdate;
     }
 
     public Role getRole() {

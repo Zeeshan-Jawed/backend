@@ -1,5 +1,7 @@
 package uni.project.ecommerce.Model;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -9,10 +11,13 @@ public class ShoppingCart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date date;
+    private int quantity;
     @ManyToOne
     @JoinColumn(name="product_id")
     private Product product;
+    @ManyToOne
+    @JoinColumn(name="order_no")
+    private Order order;
 
     public Long getId() {
         return id;
@@ -22,12 +27,12 @@ public class ShoppingCart {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public Product getProduct() {
@@ -38,9 +43,12 @@ public class ShoppingCart {
         this.product = product;
     }
 
-    @Override
-    public String toString() {
-        return
-                "id=" + id;
+    public Order getOrder() {
+        return order;
     }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
 }

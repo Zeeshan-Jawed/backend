@@ -23,7 +23,6 @@ public class ShoppingCartController {
     }
     @PostMapping(value = "/")
     public String cardId(@RequestBody ShoppingCartDTO shoppingCartDTO){
-        System.out.println(shoppingCartDTO.getProduct());
         return shoppingCartService.save(shoppingCartDTO);
     }
 }

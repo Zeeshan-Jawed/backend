@@ -34,8 +34,6 @@ public class ProductJpaService implements ProductService {
         product.setCategory(object.getCategory());
         product.setName(object.getName());
         product.setImage(object.getImage());
-        product.setFeatured_image_1(object.getFeatured_image_1());
-        product.setFeatured_image_2(object.getFeatured_image_2());
         product.setPrice(object.getPrice());
          productRepository.save(product);
         return "Record Saved Successfully";
@@ -47,8 +45,6 @@ public class ProductJpaService implements ProductService {
         product.setCategory(object.getCategory());
         product.setName(object.getName());
         product.setImage(object.getImage());
-        product.setFeatured_image_1(object.getFeatured_image_1());
-        product.setFeatured_image_2(object.getFeatured_image_2());
         product.setPrice(object.getPrice());
         productRepository.save(product);
         return "Record Saved Successfully";

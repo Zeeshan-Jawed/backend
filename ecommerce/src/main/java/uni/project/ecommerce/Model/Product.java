@@ -14,8 +14,6 @@ public class Product {
     private Long id;
     private String name;
     private String image;
-    private String featured_image_1;
-    private String featured_image_2;
     private Double price;
     @JsonBackReference
     @ManyToOne
@@ -48,21 +46,6 @@ public class Product {
         this.image = image;
     }
 
-    public String getFeatured_image_1() {
-        return featured_image_1;
-    }
-
-    public void setFeatured_image_1(String featured_image_1) {
-        this.featured_image_1 = featured_image_1;
-    }
-
-    public String getFeatured_image_2() {
-        return featured_image_2;
-    }
-
-    public void setFeatured_image_2(String featured_image_2) {
-        this.featured_image_2 = featured_image_2;
-    }
 
     public Double getPrice() {
         return price;

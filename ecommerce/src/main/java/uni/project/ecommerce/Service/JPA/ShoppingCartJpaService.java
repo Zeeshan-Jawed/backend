@@ -34,9 +34,10 @@ public class ShoppingCartJpaService implements ShoppingCartService {
 
         ShoppingCart shoppingCart=new ShoppingCart();
         shoppingCart.setProduct(object.getProduct());
-        shoppingCart.setDate(new Date());
+        shoppingCart.setQuantity(1);
+        shoppingCart.setOrder(object.getOrder());
         shoppingCartRepository.save(shoppingCart);
-        return shoppingCart.toString();
+        return "Record saved";
     }
     @Override
     public String update(Long aLong, ShoppingCartDTO object) {

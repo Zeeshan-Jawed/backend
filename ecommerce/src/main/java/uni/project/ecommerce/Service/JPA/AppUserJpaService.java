@@ -42,11 +42,7 @@ public class AppUserJpaService implements AppUserService {
         appUser.setFirst_Name(object.getFirst_Name());
         appUser.setLast_Name(object.getLast_Name());
         appUser.setContactNo(object.getContactNo());
-        appUser.setCity(object.getCity());
-        appUser.setZip(object.getZip());
         appUser.setAddress(object.getAddress());
-        appUser.setAddress2(object.getAddress2());
-        appUser.setRegistationdate(object.getRegistationdate());
         appUserRepository.save(appUser);
         return "Record Saved Sucessfully";
     }
@@ -59,11 +55,7 @@ public class AppUserJpaService implements AppUserService {
         appUser.setFirst_Name(object.getFirst_Name());
         appUser.setLast_Name(object.getLast_Name());
         appUser.setContactNo(object.getContactNo());
-        appUser.setCity(object.getCity());
-        appUser.setZip(object.getZip());
         appUser.setAddress(object.getAddress());
-        appUser.setAddress2(object.getAddress2());
-        appUser.setRegistationdate(object.getRegistationdate());
         appUserRepository.save(appUser);
         return "Updated Sucessfully";
     }

@@ -1,11 +1,13 @@
 package uni.project.ecommerce.DTO;
 
+import uni.project.ecommerce.Model.Order;
 import uni.project.ecommerce.Model.Product;
 
 public class ShoppingCartDTO {
     private Long id;
-    private String date;
+    private int quantity;
     private Product product;
+    private Order order;
 
     public Long getId() {
         return id;
@@ -15,12 +17,12 @@ public class ShoppingCartDTO {
         this.id = id;
     }
 
-    public String getDate() {
-        return date;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public Product getProduct() {
@@ -29,5 +31,13 @@ public class ShoppingCartDTO {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }
