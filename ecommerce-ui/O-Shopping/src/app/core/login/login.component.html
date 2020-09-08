@@ -1,0 +1,93 @@
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 login-form-1">
+      <h3>Login</h3>
+      <form #loginO="ngForm" (ngSubmit)="login(loginO)">
+        <div class="form-group">
+          <input
+            ngModel
+            name="email"
+            type="text"
+            class="form-control"
+            placeholder="Your Email *"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <input
+            ngModel
+            name="password"
+            type="password"
+            class="form-control"
+            placeholder="Your Password *"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btnSubmit" value="Login" />
+        </div>
+        <div class="form-group">
+          <a class="ForgetPwd">Forget Password?</a>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6 login-form-2">
+      <h3>Register</h3>
+      <form #registerO="ngForm" (ngSubmit)="register(registerO)">
+        <div class="form-group">
+          <input
+            ngModel
+            name="first_Name"
+            type="text"
+            class="form-control"
+            placeholder="First Name*"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <input
+            ngModel
+            name="last_Name"
+            type="text"
+            class="form-control"
+            placeholder="Last Name*"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <input
+            ngModel
+            name="email"
+            type="text"
+            class="form-control"
+            placeholder="Your Email *"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <input
+            ngModel
+            name="password"
+            type="password"
+            class="form-control"
+            placeholder="Your Password *"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <input
+            ngModel
+            name="contactNo"
+            type="text"
+            class="form-control"
+            placeholder="Your Mobile Number *"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btnSubmit" value="Register" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-8">
+    <form #f="ngForm" (ngSubmit)="save(f.value)">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          class="form-control"
+          #title="ngModel"
+          [(ngModel)]="product.name"
+          name="name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <div class="input-group">
+          <span class="input-group-text">PKR</span>
+          <input
+            class="form-control"
+            #price="ngModel"
+            [(ngModel)]="product.price"
+            name="price"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select
+          [(ngModel)]="product.category"
+          name="category"
+          id="category"
+          class="form-control"
+          required
+        >
+          <option value=""></option>
+          <option *ngFor="let c of categories" [ngValue]="c">
+            {{ c.name }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="imageUrl">Image URL</label>
+        <input
+          class="form-control"
+          #image="ngModel"
+          [(ngModel)]="product.image"
+          name="image"
+        />
+      </div>
+      <button class="btn btn-primary">Save</button>
+      <button class="btn btn-danger" type="button" (click)="delete()">
+        Delete
+      </button>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <div *ngIf="title.value" class="card" style="width: 21rem">
+      <img class="card-img-top" [src]="image.value" *ngIf="product.image" />
+      <div class="card-body">
+        <h5 class="card-title">{{ title.value }}</h5>
+        <p class="card-text">{{ price.value | currency: "PKR" }}</p>
+      </div>
+    </div>
+  </div>
+</div>
