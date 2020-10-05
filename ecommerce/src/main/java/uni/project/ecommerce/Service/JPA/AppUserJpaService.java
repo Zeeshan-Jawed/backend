@@ -33,7 +33,6 @@ public class AppUserJpaService implements AppUserService {
         return appUserRepository.findByemail(email);
 
     }
-
     @Override
     public String save(AppUserDTO object) {
         AppUser appUser=new AppUser();

@@ -17,9 +17,9 @@ public class Product {
     private Double price;
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name="category_id")
+    @JoinColumn(name="category_id" )
     private Category category;
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
     private Set<ShoppingCart>shoppingCarts;
 
     public Long getId() {

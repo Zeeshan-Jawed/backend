@@ -24,6 +24,7 @@ export class AuthService {
   }
   logout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("userid");
   }
   isLoggedIn() {
     let jwtHelper = new JwtHelperService();

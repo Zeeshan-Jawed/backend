@@ -19,11 +19,12 @@ public class    AppUser {
     private String last_Name;
     private Long contactNo;
     private String address;
-
     @ManyToOne
     @JoinColumn(name="role_id")
     private Role role;
-
+    @JsonBackReference
+    @OneToMany(mappedBy = "appUser")
+    private Set<Order> orders=new HashSet<>();
     public Long getId() {
         return id;
     }
@@ -86,5 +87,13 @@ public class    AppUser {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 }

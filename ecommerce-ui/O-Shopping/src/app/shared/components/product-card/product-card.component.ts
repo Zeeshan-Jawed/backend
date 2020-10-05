@@ -20,7 +20,6 @@ export class ProductCardComponent {
     this.orderId = localStorage.getItem("orderId");
     if (!this.orderId) {
       this._OrderService.createOrderID().subscribe((data: any) => {
-        console.log(data);
         let Id = data.substring(3);
         localStorage.setItem("orderId", Id);
         this.orderId = Id;

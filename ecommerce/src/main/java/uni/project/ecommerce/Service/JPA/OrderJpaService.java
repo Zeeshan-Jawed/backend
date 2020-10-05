@@ -2,6 +2,7 @@ package uni.project.ecommerce.Service.JPA;
 
 import org.springframework.stereotype.Service;
 import uni.project.ecommerce.DTO.OrderDTO;
+import uni.project.ecommerce.Model.AppUser;
 import uni.project.ecommerce.Model.Order;
 import uni.project.ecommerce.Repository.OrderRepository;
 import uni.project.ecommerce.Service.OrderService;
@@ -34,6 +35,7 @@ public class OrderJpaService implements OrderService {
     public String save(OrderDTO object) {
         Order order=new Order();
         order.setDate(new Date());
+        order.setAppUser(object.getAppUser());
         order.setTotal_amount(object.getTotal_amount());
         orderRepository.save(order);
         return order.toString();
@@ -41,8 +43,9 @@ public class OrderJpaService implements OrderService {
 
     @Override
     public String update(Long aLong, OrderDTO object) {
-        Order order=new Order();
+        Order order=orderRepository.findById(aLong).orElse(null);
         order.setDate(new Date());
+        order.setTotal_item(object.getTotal_item());
         order.setTotal_amount(object.getTotal_amount());
         orderRepository.save(order);
         return "Record Updated Successfully";

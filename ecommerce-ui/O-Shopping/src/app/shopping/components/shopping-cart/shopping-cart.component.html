@@ -33,5 +33,15 @@
         </td>
       </tr>
     </tbody>
+    <tfoot>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>Total Amount: {{ totalamount | currency: "PKR " }}</td>
+      </tr>
+    </tfoot>
   </table>
+  <a [routerLink]="['/ordersucess']" routerLinkActive="router-link-active">
+    <button class="btn btn-primary" (click)="checkout()">Checkout</button>
+  </a>
 </div>
